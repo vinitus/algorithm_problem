@@ -1,7 +1,3 @@
-import sys
-
-sys.stdin = open(r"SWEA\1226_미로1\input.txt","r")
-
 def Four_dir(y,x):                              # 4방위 좌표를 2중 리스트로 나타내는 함수
     return [[y,x+1],[y,x-1],[y+1,x],[y-1,x]]    # 각각 동 서 남 북
 
