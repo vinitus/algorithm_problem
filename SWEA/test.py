@@ -1,13 +1,8 @@
-words = ["round" , "dream", "magnet" , "tweet" , "tweet", "trick", "kiwi"]
-tmp_list = []
-
-for idx in range(len(words)):
-    if idx == 0:
-        continue
-    if words[idx][0] != words[idx-1][-1]:
-        print(f'{idx+1}번 탈락')
-    else:
-        if words[idx] not in tmp_list:
-            tmp_list.append(words[idx])
-        else:
-            print(f'{idx+1}번 탈락')
+arr = [3,6,7,1]
+n = len(arr)
+for i in range(1<<n):   # 1<<n 은 부분 집합의 갯수
+	for j in range(n):    # 원소의 수만큼 비트를 비교
+		if i & (1<<j):      # i의 j번 비트가 1인 경우
+			print(f'{i = }, {j = }, {arr[j]}', end=", ")
+	print()
+print()
