@@ -1,13 +1,12 @@
-words = ["round" , "dream", "magnet" , "tweet" , "tweet", "trick", "kiwi"]
-tmp_list = []
+class Animal:
+    def __init__(self, name):
+        self.name = name
 
-for idx in range(len(words)):
-    if idx == 0:
-        continue
-    if words[idx][0] != words[idx-1][-1]:
-        print(f'{idx+1}번 탈락')
-    else:
-        if words[idx] not in tmp_list:
-            tmp_list.append(words[idx])
-        else:
-            print(f'{idx+1}번 탈락')
+    def walk(self):
+        print('걷는다!')
+
+    def eat(self):
+        print(f'{self.name}!먹는다!')
+
+dog = Animal('dog')
+dog.walk()
