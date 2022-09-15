@@ -1,4 +1,1 @@
-def a(b):
-    return b
-
-print(a("c"))
+print(type('a') is str)
