@@ -1,3 +1,8 @@
-const fs = require('fs')
-// let input = fs.readFileSync('./input.txt').toString().trim().split('\n')
-let input = fs.readFileSync('./dev/stdin').toString().trim().split('\n')
+const fs = require('fs');
+const input = fs.readFileSync('./dev/stdin').toString().trim().split('\n');
+
+function main(input) {}
+
+console.log(main(input));
+
+module.exports = main;
