@@ -1,6 +1,9 @@
 import sys
+
+
 def input():
     return sys.stdin.readline().rstrip()
+
 
 class Node:
     def __init__(self, data, left, right):
@@ -8,40 +11,40 @@ class Node:
         self.left = left
         self.right = right
 
-def forward(node):
-    print(node.data, end="")
-    if node.left:
-        forward(tree[node.left])
-    if node.right:
-        forward(tree[node.right])
 
-def middle(node):
-    if node.left:
-        middle(tree[node.left])
+def print_left(node):
     print(node.data, end="")
-    if node.right:
-        middle(tree[node.right])
+    if node.left != ".":
+        print_left(tree[node.left])
+    if node.right != ".":
+        print_left(tree[node.right])
 
-def back(node):
-    if node.left:
-        back(tree[node.left])
-    if node.right:
-        back(tree[node.right])
+
+def print_middle(node):
+    if node.left != ".":
+        print_middle(tree[node.left])
     print(node.data, end="")
+    if node.right != ".":
+        print_middle(tree[node.right])
+
+
+def print_right(node):
+    if node.left != ".":
+        print_right(tree[node.left])
+    if node.right != ".":
+        print_right(tree[node.right])
+    print(node.data, end="")
+
 
 N = int(input())
 tree = {}
+
 for _ in range(N):
-    a,b,c = input().split()
-    if b == '.':
-        b = None
-    if c == '.':
-        c = None
-    tree[a] = Node(a,b,c)
+    mid, left, right = input().split()
+    tree[mid] = Node(mid, left, right)
 
-
-forward(tree['A'])
+print_left(tree["A"])
 print()
-middle(tree['A'])
+print_middle(tree["A"])
 print()
-back(tree['A'])
+print_right(tree["A"])

@@ -1,10 +1,13 @@
-from heapq import heappush,heappop
+from heapq import heappush, heappop
 import sys
+
+
 def input():
     return sys.stdin.readline().rstrip()
 
+
 T = int(input())
-for _ in range(1,T+1):
+for _ in range(1, T + 1):
     k = int(input())
     max_Q = []
     min_Q = []
@@ -16,16 +19,16 @@ for _ in range(1,T+1):
     visited = [0] * k
     for idx in range(k):
         order, n = input().split()
-        if order == "I":                                                    # I는 push
-            heappush(max_Q, (-int(n),idx))                                  # 최대힙이기 때문에 -를 해주고 idx와 묶음
-            heappush(min_Q, (int(n),idx))                                   # 최소힙. idx와 묶음
-            visited[idx] = 1                                                # visitd
+        if order == "I":  # I는 push
+            heappush(max_Q, (-int(n), idx))  # 최대힙이기 때문에 -를 해주고 idx와 묶음
+            heappush(min_Q, (int(n), idx))  # 최소힙. idx와 묶음
+            visited[idx] = 1  # visitd
         else:
-            if n == "-1":                                                   # 최소힙에서 빼기
-                while min_Q and not visited[min_Q[0][1]]:                   # min_Q가 존재하고 max_Q에서 힙팝안햇으면
+            if n == "-1":  # 최소힙에서 빼기
+                while min_Q and not visited[min_Q[0][1]]:  # min_Q가 존재하고 max_Q에서 힙팝안햇으면
                     heappop(min_Q)
-                if min_Q:                                                   # min_Q가 존재하면
-                    visited[min_Q[0][1]] = 0                                # max_Q에서도 빼줘야하니깐 visited의 idx에 표시
+                if min_Q:  # min_Q가 존재하면
+                    visited[min_Q[0][1]] = 0  # max_Q에서도 빼줘야하니깐 visited의 idx에 표시
                     heappop(min_Q)
             else:
                 while max_Q and not visited[max_Q[0][1]]:
@@ -34,13 +37,12 @@ for _ in range(1,T+1):
                     visited[max_Q[0][1]] = 0
                     heappop(max_Q)
 
-    while min_Q and not visited[min_Q[0][1]]:                               # 연산 하고도 남아잇을수도잇슴
+    while min_Q and not visited[min_Q[0][1]]:  # 연산 하고도 남아잇을수도잇슴
         heappop(min_Q)
     while max_Q and not visited[max_Q[0][1]]:
         heappop(max_Q)
 
-
     if not min_Q or not max_Q:
         print("EMPTY")
     else:
-        print(f'{-max_Q[0][0]} {min_Q[0][0]}')
+        print(f"{-max_Q[0][0]} {min_Q[0][0]}")
