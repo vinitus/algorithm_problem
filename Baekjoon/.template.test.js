@@ -27,5 +27,5 @@ const makeTestInstance = (idx, result) => {
 };
 
 makeTestInstance(undefined, undefined);
-makeTestInstance(undefined, undefined);
+makeTestInstance('a', 'a');
 makeTestInstance(undefined, undefined);

@@ -5,6 +5,8 @@ function main(input) {
   if (typeof input !== 'string') return;
 
   const inputArr = input.split('\n');
+
+  return input;
 }
 
 console.log(main(input));
