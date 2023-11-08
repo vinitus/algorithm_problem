@@ -20,10 +20,12 @@ function getTestCaseString() {
 
 const testCaseString = getTestCaseString();
 
-test(`${testCaseString} ${makeTestCaseNum.next().value}`, () => {
-  expect(main()).toBe(undefined);
-});
+const makeTestInstance = (idx, result) => {
+  return test(`${testCaseString} ${makeTestCaseNum.next().value}`, () => {
+    expect(main(idx)).toBe(result);
+  });
+};
 
-test(`${testCaseString} ${makeTestCaseNum.next().value}`, () => {
-  expect(main()).toBe(undefined);
-});
+makeTestInstance(undefined, undefined);
+makeTestInstance(undefined, undefined);
+makeTestInstance(undefined, undefined);
