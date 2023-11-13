@@ -1,6 +1,6 @@
 const fs = require('fs');
 const { exec } = require('child_process');
-const filename = process.argv[2];
+const filename = process.argv[3] ? process.argv[2] : process.argv[2] + ' ' + process.argv[3];
 
 fs.readFile('./Baekjoon/.template.js', 'utf-8', (err, data) => {
   if (err) throw err;
@@ -35,6 +35,6 @@ function openFile(filename) {
       return;
     }
 
-    console.log(`${filename}.js is created successfully.`);
+    console.log(`${filename} is created successfully.`);
   });
 }
