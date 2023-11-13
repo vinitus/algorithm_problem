@@ -1,13 +1,13 @@
 {
   "name": "algorithm_problem",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "알고리즘 풀이 모음집",
+  "main": "main.js",
   "scripts": {
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "vinitus",
   "license": "ISC",
   "devDependencies": {
     "jest": "^29.7.0"
