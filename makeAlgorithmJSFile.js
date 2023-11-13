@@ -3,7 +3,7 @@ const filename = process.argv[2];
 
 fs.readFile('./Baekjoon/.template.js', 'utf-8', (err, data) => {
   if (err) throw err;
-  fs.writeFile('./' + filename + '.js', data, (err) => {
+  fs.writeFile('./Baekjoon/' + filename + '.js', data, (err) => {
     if (err) throw err;
   });
 });
@@ -11,7 +11,7 @@ fs.readFile('./Baekjoon/.template.js', 'utf-8', (err, data) => {
 fs.readFile('./Baekjoon/.template.test.js', 'utf-8', (err, data) => {
   if (err) throw err;
   const transformedData = updateRequireTarget(data, filename);
-  fs.writeFile('./' + filename + '.test.js', transformedData, (err) => {
+  fs.writeFile('./Baekjoon/' + filename + '.test.js', transformedData, (err) => {
     if (err) throw err;
   });
 });
