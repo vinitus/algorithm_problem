@@ -4,7 +4,7 @@ const filename = process.argv[2];
 
 fs.readFile('./Baekjoon/.template.js', 'utf-8', (err, data) => {
   if (err) throw err;
-  fs.promises.writeFile('./Baekjoon/' + filename + '.js', data).then(() => {
+  fs.promises.writeFile('./tmp/' + filename + '.js', data).then(() => {
     openFile(`${filename}.js`);
   });
 });
@@ -12,7 +12,7 @@ fs.readFile('./Baekjoon/.template.js', 'utf-8', (err, data) => {
 fs.readFile('./Baekjoon/.template.test.js', 'utf-8', (err, data) => {
   if (err) throw err;
   const transformedData = updateRequireTarget(data, filename);
-  fs.promises.writeFile('./Baekjoon/' + filename + '.test.js', transformedData).then(() => {
+  fs.promises.writeFile('./tmp/' + filename + '.test.js', transformedData).then(() => {
     openFile(`${filename}.test.js`);
   });
 });
@@ -24,7 +24,7 @@ function updateRequireTarget(originalFile, filename) {
 }
 
 function openFile(filename) {
-  exec(`code ./Baekjoon/${filename}`, (err, stdout, stderr) => {
+  exec(`code ./tmp/${filename}`, (err, stdout, stderr) => {
     if (err) {
       console.warn(err);
       return;
