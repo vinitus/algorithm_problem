@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "jest",
-    "make": "node ./makeAlgorithmJSFile.js"
+    "make": "node ./makeAlgorithmJSFile.js",
+    "autocommit": "node ./gitCommitAuto.js"
   },
   "keywords": [],
   "author": "vinitus",
