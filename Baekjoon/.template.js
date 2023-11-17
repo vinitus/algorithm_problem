@@ -2,7 +2,7 @@ const fs = require('fs');
 const input = fs.readFileSync('./dev/stdin').toString().trim();
 
 function main(input) {
-  if (typeof input !== 'string') return;
+  if (typeof input !== 'string' || !input) return;
 
   const inputArr = input.split('\n');
 
